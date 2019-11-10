@@ -37,11 +37,9 @@ hljs.initHighlightingOnLoad();
 {{- partial "_script/repository.html" . }}
 {{- end}}
 <!-- TODO books -->
-{{- if .IsPage }}
-{{- partial "_script/pv.html" . }}
-{{- end }}
 {{- if eq .Type "posts"   }}
 {{- partial "_script/comment.html" . }}
 {{- end }}
 {{- partial "_script/fancybox.html" . }}
 {{- partial "_script/analytics.html" . }}
+{{- partial "_script/pv.html" . }}
