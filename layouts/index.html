@@ -3,7 +3,8 @@
 <main class="main" role="main">
   {{/* partial "archive-list.html" . - */}} 
   <div class="content article-list">
-    {{- range where .Site.RegularPages "Type" "posts" -}}
+    {{ $paginator := .Paginate (where .Site.RegularPages "Type" "posts") }}
+    {{ range $paginator.Pages }}
     <article
       class="article article-type-page"
       itemscope
@@ -15,9 +16,9 @@
         {{- .Scratch.Delete "class_name"}}
       </div>
       {{- if .Summary }}
-      <div class="article-entry text-muted" itemprop="description">
+      <!-- <div class="article-entry text-muted" itemprop="description">
         {{- .Summary -}}
-      </div>
+      </div> -->
       {{- end }}
       <p class="article-meta">
         {{- partial "post/date.html" . }}
@@ -29,7 +30,7 @@
     </article>
     {{- end -}}
   </div>
-  {{/* partial "pagination.html" . - */}}
+  {{ partial "pagination.html" $ }}
 </main>
 {{- end }}
 
