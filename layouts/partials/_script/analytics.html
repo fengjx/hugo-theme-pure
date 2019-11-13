@@ -2,3 +2,16 @@
 {{- if and (not .Site.IsServer) .Site.GoogleAnalytics -}}
   {{ template "_internal/google_analytics_async.html" . }}
 {{- end -}}
+
+{{- if .Site.Params.pv.baidu.enable }}
+<script>
+  var _hmt = _hmt || [];
+  (function() {
+    var hm = document.createElement("script");
+    hm.src = "https://hm.baidu.com/hm.js?{{ .Site.Params.pv.baidu.id }}";
+    var s = document.getElementsByTagName("script")[0]; 
+    s.parentNode.insertBefore(hm, s);
+  })();
+</script>
+{{- end -}}
+
