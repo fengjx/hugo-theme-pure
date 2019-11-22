@@ -30,7 +30,7 @@
                     aria-labelledby="heading{{ .Name | md5}}">
                     <div class="panel-body">
                         <div class="collection">
-                                {{- range .Pages }}
+                                {{- range .Pages.ByDate.Reverse }}
                                 {{- .Page.Scratch.Set "type" "link"}}
                                 {{- partial "item-post.html" . }}
                             {{- end }}

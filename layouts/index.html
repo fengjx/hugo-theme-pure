@@ -3,7 +3,7 @@
 <main class="main" role="main">
   {{/* partial "archive-list.html" . - */}} 
   <div class="content article-list">
-    {{ $paginator := .Paginate (where .Site.RegularPages "Type" "posts") }}
+    {{ $paginator := .Paginate (where .Site.RegularPages "Type" "index") }}
     {{ range $paginator.Pages }}
     <article
       class="article article-type-page"
